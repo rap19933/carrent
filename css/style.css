@@ -1,0 +1,172 @@
+html {
+    position: relative;
+    min-height: 100vh;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #000;
+    background: #c9c9c9;
+    font-weight: normal;
+    margin-bottom: 6em;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+header {
+    margin: 25px 0 20px;
+}
+
+.menu {
+    background: #353535;
+    border: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .19);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    padding-right: 80px;
+}
+
+.navbar-brand img {
+    position: relative;
+    top: -48px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #8fa81f;
+    font-size: 18px;
+}
+.navbar-default .navbar-nav:not(.icons) > li > a {
+  text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li.active-link > a {
+    border-bottom: 1px solid #d42819;
+    color: #FFF;
+}
+
+.navbar-default .navbar-nav:not(.icons) > li > a:hover {
+    border-bottom: 1px solid #d42819;
+    color: #d42819;
+}
+
+.navbar-default .navbar-nav >li>a:hover {
+    color: #c9c8c8;
+}
+
+
+.menu .container {
+    position: relative;
+}
+
+.row, .erLogin {
+    text-align: center;
+}
+
+.footer {
+    padding: 10px;
+    background: #6b6969;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+.fontSize {
+    top: 7px;
+    font-size: 16px
+}
+.yearMy{
+   text-align: left;
+}
+.tablica {
+    color: #000;
+    background: #e6ffbf;
+    font-size: 15px;
+}
+.mycolor{
+    background: #9fbb73;
+}
+
+table, th, td {
+    border: 1px double black;
+    text-align: center;
+}
+caption{
+    text-align: center;
+    font-size: 25px;
+    color: #000;
+    font-weight: bolder; /* Жирное начертание */
+}
+
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+    .navbar-brand {
+        padding-right: 0px;
+    }
+    .icons {
+        position: absolute;
+        right: 34px;
+        top: 11px;
+    }
+    .icons li a {
+        padding: 5px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        font-size: 15px;
+    }
+    .footerImg img {
+        max-width: 29px;
+    }
+    .footer {
+        padding: 7px;
+    }
+    .fontSize {
+        top : 5px;
+        font-size: 14px
+}
+
+@media only screen and (max-width: 767px) {
+    header {
+        margin: 20px 0 20px;
+    }
+    .menu {
+        padding: 0;
+    }
+    .navbar-brand img {
+        position: absolute;
+        left: 30px;
+        top: -18px;
+        max-height: 87px;
+    }
+    .navbar-nav > li > a {
+        transition: all .5s;
+   
+        text-align: center;
+    }
+    .navbar-default .navbar-nav > li.active-link > a {
+        background: #d42819;
+    }
+    .navbar-default .navbar-nav:not(.icons) > li > a:hover {
+        color: #fff;
+        background: #d42819;
+    }
+    .icons {
+        display: block !important;
+        position: relative;
+        right: 0;
+        top: 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .footerImg img {
+        max-width: 27px;
+        position: relative;
+        top: 10;
+    }
+}
+
