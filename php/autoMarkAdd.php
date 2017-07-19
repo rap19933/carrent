@@ -9,11 +9,10 @@
         $pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset='.DB_CHARSET, DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $query = "INSERT INTO `mark` (`Mark`) VALUES ('$cookie_mark')";
         $result = $pdo->exec($query);
-       if ($result == '1') {
+        if ($result == '1') {
             echo '1';
         } 
         else echo '0';
-
     } catch (PDOException $e) {
         echo '-1';
     }

@@ -9,15 +9,17 @@
             $loginIn = $_POST["login"];
             $passwordIn = md5($_POST["password"]);     
 
-            $query = "SELECT `Login`, `Password` FROM `user` WHERE `Login`='$loginIn'";
+            $query = "SELECT `UserId`, `Login`, `Password` FROM `user` WHERE `Login`='$loginIn'";
             $result = $pdo->query($query);
             $resultUser = $result->fetchAll(PDO::FETCH_ASSOC);      
-
             if (!empty($resultUser)) {
                 $password1 = $resultUser[0]['Password'];
+                $id = $resultUser[0]['UserId'];
                 if ($passwordIn === $password1){
-                $_SESSION['login'] = $loginIn;
-                $_SESSION['password'] = $passwordIn;
+                    $_SESSION['userId'] = $id;
+                    $_SESSION['login'] = $loginIn;
+                    $_SESSION['password'] = $passwordIn;
+
                 echo '1' ;
                 }
                 else echo '2';

@@ -1,10 +1,3 @@
-<?php
- session_start();
-    unset($_SESSION['login']);
-    unset($_SESSION['password']);
-    header ('Location: index.php'); 
-    exit(); 
-?>
 <!DOCTYPE html>
   <html lang="ru">
     <head>
@@ -18,7 +11,7 @@
       <link rel="stylesheet" href="css/style.css">
       <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="navbar.js"></script>
+      <script type="text/javascript" src="js/navbar.js"></script>
     </head>
     <body>
 <?php include 'header.php';?>
@@ -28,7 +21,7 @@
               		  <h3 class="text-center text-success">Смена пароля</h3>
 			        <div class="alert alert-danger hidden" id="success-alert">
 			            <div>Ошибка подключения к БД.</div>
-			   		</div>
+			   		  </div>
             	</div>
                 <div class="modal-body">
                     <form id="myForm" method="post" role="form" name="myForm">
@@ -54,37 +47,38 @@
 <?php include 'footer.php';?>
     <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
-    <script>
-	$(function() {
-        $('#сhangePassword').click(function() {
-            var password = $("#password").val();
-            var newPassword = $("#newPassword").val();
-			var dataString = 'password=' + password + '&newPassword=' + newPassword;
-            $.ajax({
-                type: "POST",
-                url: "php/passwordChange.php",
-                data: dataString,
-                success: function(result) {
-                	if (result === "-1") {
-						$('#success-alert').removeClass('hidden');
+    <script type="text/javascript">
+    	$(function() {
+            $('#сhangePassword').click(function() {
+                var password = $("#password").val();
+                var newPassword = $("#newPassword").val();
+    			      var dataString = 'password=' + password + '&newPassword=' + newPassword;
+                $.ajax({
+                    type: "POST",
+                    url: "php/passwordChange.php",
+                    data: dataString,
+                    success: function(result) {
+                    	if (result === "-1") {
+    						          $('#success-alert').removeClass('hidden');
+                      }
+                      else if (result === "-3") {
+    						          $('#pas').addClass('has-error');
+     						          $('#newPas').addClass('has-error');
+     						          alert("Ошибка при изменении пароля!");
+                      }
+                      else if (result === "1"){
+                        	document.cookie = "cookie_navbar=1";
+                          alert("Пароль успешно изменен!");
+                        	document.location.replace("index.php");
+                      }
+                      else {
+                          $('#success-alert').removeClass('hidden');
+                        	alert(result);
+                      }	
                     }
-                    else if (result === "-3") {
-						$('#pas').addClass('has-error');
- 						$('#newPas').addClass('has-error');
- 						alert("Ошибка при изменении пароля!");
-                    }
-                    else if (result === "1"){
-                    	document.cookie = "cookie_navbar=1";
-                    	document.location.replace("index.php");
-                    }
-                    else {
-                        $('#success-alert').removeClass('hidden');
-                    	alert(result);
-                    }	
-                }
+                });
             });
         });
-    });
     </script>
    </body>
 </html>
