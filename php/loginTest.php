@@ -1,31 +1,23 @@
 <?php
- 	session_start();
-	define('DB_HOST', 'localhost');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', 'carrentdb');
-	try {
-        $pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-            $loginIn = $_POST["login"];
-            $passwordIn = md5($_POST["password"]);     
+session_start();
+include 'connectDB.php';
+try {
+    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-            $query = "SELECT `UserId`, `Login`, `Password` FROM `user` WHERE `Login`='$loginIn'";
-            $result = $pdo->query($query);
-            $resultUser = $result->fetchAll(PDO::FETCH_ASSOC);      
-            if (!empty($resultUser)) {
-                $password1 = $resultUser[0]['Password'];
-                $id = $resultUser[0]['UserId'];
-                if ($passwordIn === $password1){
-                    $_SESSION['userId'] = $id;
-                    $_SESSION['login'] = $loginIn;
-                    $_SESSION['password'] = $passwordIn;
+    $stmt = $pdo->prepare('SELECT `UserId`, `Login`, `Password` FROM `user` WHERE `Login`=:login');
+    $stmt->bindParam(':login',$_POST["login"]);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                echo '1' ;
-                }
-                else echo '2';
-            } 
-            else echo '0';
-    } catch (PDOException $e) {
-        echo '-1';
-    }
+    if ($result && $_POST["password"]) {
+        if ($result[0]['Password'] === md5($_POST["password"])) {
+            $_SESSION['userId'] = $result[0]['UserId'];
+            $_SESSION['login'] = $result[0]['Login'];
+            echo '1';
+        } else echo '2';
+    } else echo '0';
+} catch (PDOException $e) {
+    echo '-1';
+}
 ?>

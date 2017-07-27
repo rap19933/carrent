@@ -1,7 +1,7 @@
 <?php
-    define('DB_HOST', 'localhost');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', 'carrentdb');
-    define('DB_CHARSET', 'utf8');
+    const DB_HOST = 'localhost';
+    const DB_USER = 'root';
+    const DB_PASSWORD = '';
+    const DB_NAME = 'carrentdb';
+    const DB_CHARSET = 'utf8';
 ?>
