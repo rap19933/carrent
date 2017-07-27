@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25defb6e-4723-4a75-b8c4-612514156bce" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/navbar.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add.php" afterPath="$PROJECT_DIR$/add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.php" afterPath="$PROJECT_DIR$/application.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/footer.php" afterPath="$PROJECT_DIR$/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/login.php" afterPath="$PROJECT_DIR$/login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/markAdd.php" afterPath="$PROJECT_DIR$/markAdd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out.php" afterPath="$PROJECT_DIR$/out.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/autoAdd.php" afterPath="$PROJECT_DIR$/php/autoAdd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/autoMarkAdd.php" afterPath="$PROJECT_DIR$/php/autoMarkAdd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/connectDB.php" afterPath="$PROJECT_DIR$/php/connectDB.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/deleteUser.php" afterPath="$PROJECT_DIR$/php/deleteUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/loginTest.php" afterPath="$PROJECT_DIR$/php/loginTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/passwordChange.php" afterPath="$PROJECT_DIR$/php/passwordChange.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/reservationAdd.php" afterPath="$PROJECT_DIR$/php/reservationAdd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/сhangePassword.php" afterPath="$PROJECT_DIR$/php/сhangePassword.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profile.php" afterPath="$PROJECT_DIR$/profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.php" afterPath="$PROJECT_DIR$/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reservation.php" afterPath="$PROJECT_DIR$/reservation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/users.php" afterPath="$PROJECT_DIR$/users.php" />
-    </list>
+    <list default="true" id="25defb6e-4723-4a75-b8c4-612514156bce" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +35,18 @@
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="connectDB.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/connectDB.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -256,12 +244,12 @@
       <workItem from="1501000718865" duration="64096000" />
       <workItem from="1501149648356" duration="22122000" />
       <workItem from="1501186418578" duration="1958000" />
-      <workItem from="1501192767713" duration="2890000" />
+      <workItem from="1501192767713" duration="3495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93566000" />
+    <option name="totallyTimeSpent" value="94171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,8 +262,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1828125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1828125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995495" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -641,13 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/connectDB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -781,6 +763,14 @@
             <marker date="1501195609001" expanded="true" signature="224:276" ph="SELECT `Rese... reservation" />
             <marker date="1501195609001" expanded="true" signature="622:699" ph="UPDATE `rese... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/connectDB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
