@@ -115,46 +115,9 @@ try {
 </main>
 
 <?php include 'footer.php'; ?>
-<script type="text/javascript">
-    $(function () {
-        $('.thumbnail img').click(function (e) {
-            e.preventDefault();
-            $('#image-modal .modal-body img').attr('src', $(this).attr('src'));
-            $("#image-modal").modal('show');
-        });
-        $('#image-modal .modal-body img').on('click', function () {
-            $("#image-modal").modal('hide');
-        });
-    });
-</script>
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker').datetimepicker({
-            language: 'ru',
-            pickTime: false,
-        });
-        $("#getDate").click(function () {
-            alert($('#datetimepicker').data("DateTimePicker").getDate());
-        });
-    });
-</script>
-<script type="text/javascript">
-    function show()
-    {
-        var date = new Date();
-        if (date.getHours() >=00 && date.getHours() <=9){
-            $.ajax({
-                type: "POST",
-                url: "php/deleteRent.php",
-                success: function (result) {
-                }
-            });
-        }
-    }
-    $(document).ready(function () {
-        show();
-        setInterval('show()', 1000*60*60);
-    });
-</script>
+<script src="js/changeRent.js" type="text/javascript"></script>
+<script src="js/datetimepicker.js.js" type="text/javascript"></script>
+<script src="js/viewImg.js.js" type="text/javascript"></script>
+
 </body>
 </html>
