@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25defb6e-4723-4a75-b8c4-612514156bce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/changeRent.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/datetimepicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/viewImg.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-    </list>
+    <list default="true" id="25defb6e-4723-4a75-b8c4-612514156bce" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -281,12 +274,12 @@
       <workItem from="1501149648356" duration="22122000" />
       <workItem from="1501186418578" duration="1958000" />
       <workItem from="1501192767713" duration="4119000" />
-      <workItem from="1501591243732" duration="888000" />
+      <workItem from="1501591243732" duration="960000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95683000" />
+    <option name="totallyTimeSpent" value="95755000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
