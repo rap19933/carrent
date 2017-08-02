@@ -60,7 +60,7 @@ $arrayNav = array(
                             <a href="profile.php?nav=7"><?= $sessionLogin; ?></a>
                         </li>
                         <li>
-                            <a href="php/out.php?nav=7">выйти</a>
+                            <a href="out.php?nav=7">выйти</a>
                         </li>
                     <?php endif; ?>
                 </ul>
