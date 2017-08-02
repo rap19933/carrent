@@ -1,21 +1,12 @@
 <?php
-//if (session_id() == '') {
-//    session_start();
-//}
-
 $navId = 1;
-if (!empty($_GET['nav'])) $navId = $_GET['nav'];
-
-
+if (!empty($_GET['nav']))
+    $navId = $_GET['nav'];
 if (isset($_SESSION['login'])) {
     $sessionLogin = $_SESSION['login'];
-    echo $sessionLogin;
 } else {
     $sessionLogin = '';
-    echo 'неудача';
 }
-
-
 $arrayNav = array(
     'главная' => 'index.php?nav=1',
     'бронь' => 'reservation.php?nav=2',
@@ -42,33 +33,34 @@ $arrayNav = array(
                     <?php
                     $i = 1;
                     foreach ($arrayNav as $key => $value):
-                        if ($i == $navId):?>
+                        if ($i == $navId): ?>
                             <li class="active-link">
                         <?php else: ?>
                             <li>
                         <?php endif; ?>
-                                <a href="<?= $value; ?>"><?= $key; ?></a>
-                            </li>
+                        <a href="<?= $value; ?>"><?= $key; ?></a>
+                        </li>
 
-                    <?php
+                        <?php
                         $i++;
-                    endforeach; ?>
+                    endforeach;
+                    ?>
                 </ul>
                 <ul class="nav navbar-nav navbar-right icons">
                     <?php
                     if ($sessionLogin === ''): ?>
                         <li id="6">
-                            <a href="login.php?nav=8">
+                            <a href="login.php?nav=7">
                                 <i class="glyphicon glyphicon-log-in">
                                 </i> войти
                             </a>
                         </li>
                     <?php else: ?>
                         <li>
-                            <a href="profile.php?nav=6"><?= $sessionLogin; ?></a>
+                            <a href="profile.php?nav=7"><?= $sessionLogin; ?></a>
                         </li>
                         <li>
-                            <a href="out.php?nav=7">выйти</a>
+                            <a href="php/out.php?nav=7">выйти</a>
                         </li>
                     <?php endif; ?>
                 </ul>

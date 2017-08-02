@@ -1,7 +1,7 @@
 $(function () {
     $('#datetimepicker').datetimepicker({
         language: 'ru',
-        pickTime: false,
+        pickTime: false
     });
     $("#getDate").click(function () {
         alert($('#datetimepicker').data("DateTimePicker").getDate());

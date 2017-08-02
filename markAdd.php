@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Добавление марки авто</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css">
@@ -39,28 +40,6 @@
     </div>
 </div>
 <?php include 'footer.php'; ?>
-<script type="text/javascript">
-    $(function () {
-        $('#markAdd').click(function () {
-            var mark = 'mark=' + $("#markAd").val();
-            $.ajax({
-                type: "POST",
-                url: "php/autoMarkAdd.php",
-                data: mark,
-                success: function (result) {
-                    if (result === "0") {
-                        $('#mark').addClass('has-error');
-                    }
-                    else if (result === "1") {
-                        document.location.replace("add.php");
-                    }
-                    else {
-                        alert(result);
-                    }
-                }
-            });
-        });
-    });
-</script>
+<script src="js/autoMarkAdd.js" type="text/javascript"></script>
 </body>
 </html>

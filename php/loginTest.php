@@ -1,12 +1,8 @@
+<?php include 'connectDB.php'; ?>
 <?php
-session_start();
-include 'connectDB.php';
 try {
-    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASSWORD,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
     $stmt = $pdo->prepare('SELECT `UserId`, `Login`, `Password` FROM `user` WHERE `Login`=:login');
-    $stmt->bindParam(':login',$_POST["login"]);
+    $stmt->bindParam(':login', $_POST["login"]);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -20,4 +16,3 @@ try {
 } catch (PDOException $e) {
     echo '-1';
 }
-?>

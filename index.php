@@ -1,25 +1,24 @@
 <?php include 'php/connectDB.php'; ?>
 <?php
-session_start();
 if (isset($_POST['myData'])) {
     $myExplode = explode(".", $_POST['dateIn']);
     $myData = $myExplode[2] . '-' . $myExplode[1] . '-' . $myExplode[0];
-    $myDataJS = $_POST['dateIn'];
+    if (strtotime($_POST['dateIn']) < strtotime(date('Y-m-d'))) {
+        header('Location: index.php?nav=1');
+    } else {
+        $myDataJS = $_POST['dateIn'];
+    }
 } else {
     $myData = date('Y-m-d');
     $myDataJS = date('d.m.Y');
 }
-
 try {
-    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET,
-        DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
     $stmt = $pdo->prepare('SELECT `AutoId`, `mark`.`Mark`,`Model`, `Price`, `Photo` FROM `auto`
         INNER JOIN `mark` ON `auto`.`MarkId` = `mark`.`MarkId` WHERE `AutoId` NOT IN
             (SELECT `AutoId` FROM `reservation`
                 WHERE `DataStart`<=:myData AND `DataEnd`>:myData  AND `archive` = :archive)');
-    $stmt->bindParam(':myData',$myData);
-    $stmt->bindValue(':archive',0);
+    $stmt->bindParam(':myData', $myData);
+    $stmt->bindValue(':archive', 0);
     $stmt->execute();
     $resultAuto = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -33,13 +32,13 @@ try {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Аренда авто</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="js/moment-with-locales.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -64,8 +63,8 @@ try {
     <?php
     if ($sessionLogin === ''): ?>
         <div class="alert alert-danger erLogin">
-                    <h4>Для бронирования автомобиля необходимо авторизоваться!</h4>
-                </div>
+            <h4>Для бронирования автомобиля необходимо авторизоваться!</h4>
+        </div>
     <?php endif; ?>
     <div class="container">
         <div class="row">
@@ -75,7 +74,8 @@ try {
                     <form name="myData" method="post" action="index.php">
                         <div class="form-group">
                             <div class="input-group date" id="datetimepicker">
-                                <input type="text" class="form-control" name="dateIn" value="<?=$myDataJS?>"/>
+                                <input type="text" class="form-control" id="dateIn" name="dateIn"
+                                       value="<?= $myDataJS ?>"/>
                                 <span class="input-group-addon">
                               <span class="glyphicon-calendar glyphicon"></span>
                             </span>
@@ -92,21 +92,22 @@ try {
                         <?php
                         if (!empty($resultAuto)):
                             foreach ($resultAuto as $value): ?>
-                                    <div class="col-sm-6 col-md-4">
-                                        <div class="thumbnail photo">
-                                        <img class="photo" src="<?=$value['Photo']?>" alt="<?=$value['Model']?>">
-                                            <div class="caption">
-                                            <h2><?=$value['Mark']?>-<?=$value['Model']?></h2>
-                                            <p>Цена: <?=$value['Price']?> руб.</p>
-                                            <?php if ($sessionLogin !== ''):?>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail photo">
+                                        <img class="photo" src="<?= $value['Photo'] ?>" alt="<?= $value['Model'] ?>">
+                                        <div class="caption">
+                                            <h2><?= $value['Mark'] ?>-<?= $value['Model'] ?></h2>
+                                            <p>Цена: <?= $value['Price'] ?> руб.</p>
+                                            <?php if ($sessionLogin !== ''): ?>
                                                 <button type="submit" class="btn btn-primary" name="rent"
-                                                        value="<?=$value['AutoId']?> <?=$myData?>"> Оформить бронь</button>
-                                            <?php endif;?>
-                                            </div>
+                                                        value="<?= $value['AutoId'] ?> <?= $myData ?>"> Оформить бронь
+                                                </button>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
-                            <?php endforeach;?>
-                        <?php endif;?>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </form>
                 </div>
             </article>
@@ -115,9 +116,9 @@ try {
 </main>
 
 <?php include 'footer.php'; ?>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="js/changeRent.js" type="text/javascript"></script>
-<script src="js/datetimepicker.js.js" type="text/javascript"></script>
-<script src="js/viewImg.js.js" type="text/javascript"></script>
-
+<script src="js/datetimepicker.js" type="text/javascript"></script>
+<script src="js/viewImg.js" type="text/javascript"></script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +6,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Аренда авто</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -47,38 +45,6 @@ session_start();
     </div>
 </div>
 <?php include 'footer.php'; ?>
-<script type="text/javascript">
-    $(function () {
-        $('#сhangePassword').click(function () {
-            var password = $("#password").val();
-            var newPassword = $("#newPassword").val();
-            var dataString = 'password=' + password + '&newPassword=' + newPassword;
-            $.ajax({
-                type: "POST",
-                url: "php/passwordChange.php",
-                data: dataString,
-                success: function (result) {
-                    if (result === "-1") {
-                        $('#success-alert').removeClass('hidden');
-                    }
-                    else if (result === "-3") {
-                        $('#pas').addClass('has-error');
-                        $('#newPas').addClass('has-error');
-                        alert("Ошибка при изменении пароля!");
-                    }
-                    else if (result === "1") {
-                       // document.cookie = "cookie_navbar=1";
-                        alert("Пароль успешно изменен!");
-                        document.location.replace("index.php?nav=1");
-                    }
-                    else {
-                        $('#success-alert').removeClass('hidden');
-                        alert(result);
-                    }
-                }
-            });
-        });
-    });
-</script>
+<script src="js/passwordChange.js" type="text/javascript"></script>
 </body>
 </html>

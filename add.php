@@ -1,10 +1,7 @@
+<?php include 'php/connectDB.php'; ?>
 <?php
-session_start();
-include 'php/connectDB.php';
 if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
     try {
-        $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER,
-            DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
         $query = "SELECT * FROM `mark`";
         $result = $pdo->query($query);
         $resultAuto = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -12,7 +9,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
         echo 'Ошибка при подключении к базе данных!';
     }
 } else {
-    header('Location: login.php');
+    header('Location: login.php?nav=7');
     exit();
 }
 ?>
@@ -23,11 +20,11 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Аренда авто</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap-select.min.css">
-    <script type="text/javascript" src="js/navbar.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -47,7 +44,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
                         <?php
                         if (!empty($resultAuto)):
                             foreach ($resultAuto as $value): ?>
-                                <option id="<?=$value['MarkId'];?>"><?=$value['Mark'];?></option>
+                                <option id="<?= $value['MarkId']; ?>"><?= $value['Mark']; ?></option>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </select>
@@ -75,7 +72,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
         <div class="modal-footer">
             <button id="save" type="button" class="btn btn-primary btn-block">Добавить авто</button>
             </br>
-            <a class="btn btn-success" data-dismiss="modal" href="markAdd.php">Добавить марку авто</a>
+            <a class="btn btn-success" data-dismiss="modal" href="markAdd.php?nav=7">Добавить марку авто</a>
         </div>
     </div>
 </div>
@@ -83,45 +80,6 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 'admin') {
 <?php include 'footer.php'; ?>
 <script type="text/javascript" src="js/previewFile.js"></script>
 <script src="js/bootstrap-select.min.js" type="text/javascript"></script>
-<script>
-    $(function () {
-        $('#save').click(function () {
-            var selectId = $(".selectId option:selected").attr('id');
-            var image = $('.imgAdd').attr('src');
-            var res = encodeURIComponent(image);
-            var dataString = 'selectId=' + selectId
-                + '&model=' + $("#model").val()
-                + '&number=' + $("#number").val()
-                + '&releaseData=' + $("#releaseData").val()
-                + '&price=' + $("#price").val()
-                + '&image=' + res;
-            $.ajax({
-                type: "POST",
-                data: dataString,
-                url: "php/autoAdd.php",
-                success: function (result) {
-                    if (result === "-3") {
-                        $('.has-feedback').addClass('has-error');
-                    }
-                    else if (result === "-2") {
-                        $('.has-feedback').removeClass('has-error');
-                        $('.number').addClass('has-error');
-                    }
-                    else if (result === "1") {
-                        $('.has-feedback').removeClass('has-error');
-                        alert('Данные успешно добавлены!');
-                    }
-                    else if (result === "-1") {
-                        $('#success-alert').removeClass('hidden');
-                    }
-                    else {
-                        alert(result);
-                    }
-                }
-            });
-        });
-    });
-</script>
+<script src="js/autoAdd.js" type="text/javascript"></script>
 </body>
 </html>
-

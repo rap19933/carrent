@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -5,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Авторизация</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/style.css">
@@ -44,34 +46,6 @@
     </div>
 </div>
 <?php include 'footer.php'; ?>
-<script type="text/javascript">
-    $(function () {
-        $('#register').click(function () {
-            var dataString = 'login=' + $("#login").val() + '&password=' + $("#password").val();
-            $.ajax({
-                type: "POST",
-                url: "php/loginTest.php",
-                data: dataString,
-                success: function (result) {
-                    if (result === "0") {
-                        $('#log').addClass('has-error');
-                        $('#pas').addClass('has-error');
-                    }
-                    else if (result === "1") {
-                        document.location.replace("index.php?nav=1");
-                    }
-                    else if (result === "-1") {
-                        $('#success-alert').removeClass('hidden');
-                    }
-                    else if (result === "2") {
-                        $('#log').removeClass('has-error');
-                        $('#log').addClass('has-success');
-                        $('#pas').addClass('has-error');
-                    }
-                }
-            });
-        });
-    });
-</script>
+<script src="js/loginTest.js" type="text/javascript"></script>
 </body>
 </html>

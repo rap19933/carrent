@@ -7,9 +7,9 @@
                         <p>
                             &copy; 2017
                             <?php
-                            if (date("Y") > 2015)
-                                echo "- ".date("Y");
-                            ?>
+                            if (date("Y") > 2017):?>
+                                - <?=date("Y")?>
+                            <?php endif;?>
                             – приложение PHP
                         </p>
                     </div>
@@ -35,5 +35,4 @@
 if ($navId != 1): ?>
     <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 <?php endif; ?>
-
 <script src="js/bootstrap.min.js" type="text/javascript"></script>

@@ -1,23 +1,25 @@
+<?php include 'connectDB.php'; ?>
 <?php
-include 'connectDB.php';
 try {
-    $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET,
-        DB_USER, DB_PASSWORD, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-
-    $query = "SELECT `ReservationId` ,`DataEnd` FROM `reservation`";
-    $result = $pdo->query($query);
-    $resultUser = $result->fetchAll(PDO::FETCH_ASSOC);
-    if (!empty($resultUser)) {
+    $stmt = $pdo->prepare('SELECT `ReservationId` ,`DataEnd` FROM `reservation` WHERE `Archive` =:archive');
+    $stmt->bindValue(':archive', 0, PDO::PARAM_INT);
+    $stmt->execute();
+    $resultRent = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    print_r($resultRent);
+    if (!empty($resultRent)) {
         $datetime = date('Y-m-d');
-        foreach ($resultUser as $value) {
+        foreach ($resultRent as $value) {
             if (strtotime($value['DataEnd']) <= strtotime($datetime)) {
-                $upd =$value['ReservationId'];
-                $query = "UPDATE `reservation` SET `Archive` = 1 WHERE `reservation`.`ReservationId` = $upd";
-                $result1 = $pdo->exec($query);
-            }
+                $stmt = $pdo->prepare('UPDATE `reservation` SET `Archive` =:archive 
+                    WHERE `reservation`.`ReservationId` =:reservationId');
+                $stmt->bindValue(':archive', 1, PDO::PARAM_INT);
+                $stmt->bindParam(':reservationId', $value['ReservationId']);
+                $result = $stmt->execute();
+                echo ($result);
+            } else echo '-3';
+
         }
     } else echo '-2';
 } catch (PDOException $e) {
     echo '-1';
 }
-?>

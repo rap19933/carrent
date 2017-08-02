@@ -17,8 +17,6 @@ body
 img {
     max-width: 100%;
     height: auto;
-    
-
 }
 /*.photo{*/
 /*width: 100px; задаем фиксированные размеры родительскому блоку
@@ -42,14 +40,14 @@ max-height: 150px; задаем минимальную ширину и высо�
     border: 2px solid #FFFFFF;
     background: #FFFFFF;
     /*margin: 10px;*/
-  }
-  .photo img {
-    width: 200px;
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
-*/
+  /*}*/
+  /*!*.photo img {*!*/
+    /*!*width: 200px;*!*/
+    /*!*border: none;*!*/
+    /*!*margin: 0;*!*/
+    /*!*padding: 0;*!*/
+  /*!*}*!*/
+/**!*/
 header {
     margin: 25px 0 20px;
 }
@@ -145,17 +143,6 @@ caption{
     color: #000;
     font-weight: bolder; /* Жирное начертание */
 }
-/*input {
-  display: inline-block !important;
-  width: auto !important;
-}
-#country, #phone {
-  display: inline-block;
-  width: auto;
-}
-label[for="phone"] {
-  display: block;
-}*/
 
 @media only screen and (max-width: 1200px) {}
 
@@ -163,26 +150,33 @@ label[for="phone"] {
     .navbar-brand {
         padding-right: 0px;
     }
+
     .icons {
         position: absolute;
         right: 34px;
         top: 11px;
     }
+
     .icons li a {
         padding: 5px;
     }
+
     .navbar-default .navbar-nav > li > a {
         font-size: 15px;
     }
+
     .footerImg img {
         max-width: 29px;
     }
+
     .footer {
         padding: 7px;
     }
+
     .fontSize {
-        top : 5px;
+        top: 5px;
         font-size: 14px
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -222,7 +216,8 @@ label[for="phone"] {
     .footerImg img {
         max-width: 27px;
         position: relative;
-        top: 10;
+        /*top: 0;*/
     }
 }
+
 
